@@ -1,4 +1,4 @@
-// create the about section, IF USER WANTS THE ABOUT SECTION, IT WILL GENERATE AND BE CALLED IN THE HTML, under the MAIN section in this case
+// create the ABOUT section, IF USER WANTS THE ABOUT SECTION, IT WILL GENERATE AND BE CALLED IN THE HTML, under the MAIN section in this case
 
 const generateAbout = aboutText => {
   if (!aboutText) {
@@ -12,6 +12,8 @@ const generateAbout = aboutText => {
     </section>
   `;
 };
+
+//WHERE OUR PROJECTS ARE BEING GENERATED, split into featured and non featured projects
 
 const generateProjects = projectsArr => {
   // get array of just featured projects
@@ -150,7 +152,8 @@ module.exports = templateData => {
         </nav>
       </div>
     </header>
-    <main class="container my-5">
+    
+    <main class="container my-5"> 
           ${generateAbout(about)}
           ${generateProjects(projects)}
     </main>

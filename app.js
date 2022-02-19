@@ -1,7 +1,7 @@
 const fs = require('fs');
 const generatePage = require('./src/page-template.js')
 
-const inquirer = require('inquirer');
+const inquirer = require('inquirer');  // the package that allows us to use questionaire in the terminal
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -120,9 +120,9 @@ const promptProject = portfolioData => {
         message: 'Would you like to enter another project?',
         default: false
       }
-    ]).then(projectData => {
-        portfolioData.projects.push(projectData);
-        if (projectData.confirmAddProject) {
+    ]).then(returnedData => {
+        portfolioData.projects.push(returnedData);
+        if (returnedData.confirmAddProject) {
             return promptProject(portfolioData);
           } else {
             return portfolioData;
@@ -137,10 +137,10 @@ const promptProject = portfolioData => {
 promptUser()
     // .then(answers => console.log(answers)) -- THIS IS BAD FOR MY CODE
     .then(promptProject)
-        .then(portfolioData => {
-            console.log(portfolioData);
+        .then(portfolioProjectData => {
+            console.log(portfolioProjectData);
 
-            const pageHTML = generatePage(portfolioData);
+            const pageHTML = generatePage(portfolioProjectData);
 
             fs.writeFile('./index.html', pageHTML, err => {
                 if (err) throw new Error(err);
