@@ -1,8 +1,7 @@
-// var projectsArray = [];
+const fs = require('fs');
+const generatePage = require('./src/page-template.js')
 
 const inquirer = require('inquirer');
-
-    // If there's no 'projects' array property, create one
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -140,7 +139,14 @@ promptUser()
     .then(promptProject)
         .then(portfolioData => {
             console.log(portfolioData);
-            // console.log(projectsArray)
+
+            const pageHTML = generatePage(portfolioData);
+
+            fs.writeFile('./index.html', pageHTML, err => {
+                if (err) throw new Error(err);
+
+            console.log('Page created! Check out index.html in this directory to see it!');
+            });
         }  
     );
 
@@ -153,14 +159,5 @@ promptUser()
 
 
 
-// const fs = require('fs');
-// const generatePage = require('./src/page-template.js')
-
-// const pageHTML =  generatePage(name,github)
 
 
-// fs.writeFile('index.html', generatePage(name, github), err => {
-//     if (err) throw new Error(err);
-  
-//     console.log('Portfolio complete! Check out index.html to see the output!');
-//   });
