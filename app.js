@@ -137,17 +137,26 @@ const promptProject = portfolioData => {
 promptUser()
     // .then(answers => console.log(answers)) -- THIS IS BAD FOR MY CODE
     .then(promptProject)
-        .then(portfolioProjectData => {
-            console.log(portfolioProjectData);
 
-            const pageHTML = generatePage(portfolioProjectData);
+    .then(portfolioProjectData => {
+        console.log(portfolioProjectData);
 
-            fs.writeFile('./index.html', pageHTML, err => {
-                if (err) throw new Error(err);
+        const pageHTML = generatePage(portfolioProjectData);
 
-            console.log('Page created! Check out index.html in this directory to see it!');
-            });
-        }  
+        fs.writeFile('./dist/index.html', pageHTML, err => {
+            if (err) throw new Error(err);
+
+        console.log('Page created! Check out index.html in this directory to see it!');
+        });
+
+        fs.copyFile('./src/style.css', './dist/style.css', err => {
+          if (err) {
+            console.log(err);
+            return;
+          }
+          console.log('Style sheet copied successfully!');
+        });
+    }  
     );
 
 
