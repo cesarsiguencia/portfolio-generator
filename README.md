@@ -7,13 +7,14 @@ After answering all the questions, your portfolio will be generated under dist/.
 Inquirer Questions:
 1: What is your name?
 2: Github username
-3: About section
-4: Project name
-5: Project Description
-6: Project technologies
-7: Project Github link
-8: Feature or do not feature project on portfolio?
-9: Add another project confirm?
+3: Confirm add About section?
+4: About section if confirmed 'y'
+5: Project name
+6: Project Description
+7: Project technologies
+8: Project Github link
+9: Feature or do not feature project on portfolio?
+10: Add another project confirm?
 
 
 ### Installation
