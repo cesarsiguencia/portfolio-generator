@@ -19,6 +19,6 @@ Inquirer Questions:
 
 ### Installation
 
-- Download the application to your local drive, open the command line with the application or the root and run 'Node app.js'
+- Download the application to your local drive, open the command line with the application at the root and run 'Node app.js'
 
 - After you have completed answering all your questions, the generated index.html will appear under dist/
